@@ -341,3 +341,26 @@ Cypress.Commands.add('addInstitution', (email, lozinka, naziv, mesto, ulica, bro
          .click()
 })
 
+Cypress.Commands.add('registerFirm', (adresa1, brojTelefona1, email1, lozinka1, naziv1) => {
+    const token = window.localStorage.getItem('jwt');                           // Čitamo token koji smo sačuvali
+
+    cy.request({                                                                
+            method: 'POST',                                                      // Navodimo metodu i URL
+            url:  '/api/admin/firma/dodaj',      // URL je u ovom slučaju npr: /api/admin/stan/1/ukloni/2 (ne navodimo potpun url, jer koristimo baseUrl)
+            headers: {                                                          // Postavljamo token u okviru headers, da bi request mogao da se izvrši. Ako token nije postavljen dobija se error 401 Unauthorized
+                'X-Auth-Token': token,
+            },
+            body: {
+                adresa: adresa1,
+                brojTelefona: brojTelefona1,
+                email: email1,
+                lozinka: lozinka1,
+                naziv: naziv1
+              }
+        }).then((response) => {     
+            expect(response.status).to.eq(200) 
+           
+                                       
+        })                                                                      
+});
+
