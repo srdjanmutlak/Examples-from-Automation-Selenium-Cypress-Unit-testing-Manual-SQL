@@ -11,7 +11,7 @@ describe('Testiranje forme za dodavanje stanara', () => {
 
      it('Uspesno dodavanje', () => {
 
-         cy.addStanara(email, 'Bar5slova', 'Kaca', 'Markovic')
+         cy.addStanara(email, 'Bar5slova', 'Srdjan', 'Markovic')
 
          cy.get('.toast-message')
              .should('contain', 'Uspesno ste registrovali stanara!')
@@ -27,7 +27,7 @@ describe('Testiranje forme za dodavanje stanara', () => {
 
      it('Dodavanje korisnika sa vec postojiecim emailom', () => {
 
-         cy.addStanara(email, 'Bar5slova', 'Kaca', 'Markovic')
+         cy.addStanara(email, 'Bar5slova', 'Srdjan', 'Markovic')
 
          cy.get('.toast-message')
              .should('contain', 'E-mail adresa: ' + email + ' je zauzeta!')
