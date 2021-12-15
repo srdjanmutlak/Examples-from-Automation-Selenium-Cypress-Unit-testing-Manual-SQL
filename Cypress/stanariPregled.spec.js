@@ -49,8 +49,7 @@ describe('Testiranje search polja u stanarima', () => {
             .find('tbody>tr')
             .should('contain', 'Jankovic')
             .should('contain', 'Marko Markovic')
-            .should('contain', 'Kaca Markovic')
-            .should('have.length', 3) 
+            .should('have.length', 2) 
             
         cy.get('#filter').clear()
             .type('kola@gmail.com')       //kucamo samo deo prezimena
@@ -66,7 +65,7 @@ describe('Testiranje search polja u stanarima', () => {
     it('Provera praznog polja', () => {
 
         cy.get('#filter')
-            .type('Kaca')       //unosimo nesto u pretragu
+            .type('Srdjan')       //unosimo nesto u pretragu
 
         cy.get('.row > .btn').click()       //klik na dugme
 
