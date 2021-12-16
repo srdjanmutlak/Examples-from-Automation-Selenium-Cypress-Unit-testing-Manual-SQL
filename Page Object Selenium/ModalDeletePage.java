@@ -10,8 +10,6 @@ import org.openqa.selenium.support.ui.WebDriverWait;
  * Modalni dijalog mozemo modelovati kao poseban Page Objekat. Svaki entitet
  * koji ima mogucnost da bude obrisan ima potpuno isti modalni dijalog, na ovaj
  * nacin smanjujemo redudantnost koda
- * 
- * @author minamedic
  *
  */
 public class ModalDeletePage {
