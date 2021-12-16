@@ -82,4 +82,3 @@ describe('Testiranje skupstine', () => {
     })
 
 })
-//mogla sam i da ubacim ono find da mi u tabeli bude samo jedan sastanak
