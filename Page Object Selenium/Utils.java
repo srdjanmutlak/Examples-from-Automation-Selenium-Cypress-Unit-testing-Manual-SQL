@@ -12,8 +12,6 @@ import org.openqa.selenium.support.ui.WebDriverWait;
  * klasama. Na ovaj nacin su delovi koje se ponavljaju izvuceni na jedno mesto.
  * Sve metode su staticke, tako da se mogu pozivati bez instanciranja sama
  * klase.
- * 
- * @author mkondic
  *
  */
 public class Utils {
