@@ -1,0 +1,20 @@
+<!DOCTYPE suite SYSTEM "http://beust.com/testng/testng-1.0.dtd" >
+<suite name="test-parameter">
+
+	<test name="zadatak1">
+	
+		<classes>
+			<class name="unittesting.customer.Zadatak1" />
+		</classes>
+
+	</test>
+	
+	<test name="zadatak2">
+
+		<classes>
+			<class name="unittesting.customer.Zadatak2" />
+		</classes>
+
+	</test>
+
+</suite>
