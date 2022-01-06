@@ -4,15 +4,15 @@ describe('Make an HTTP request', () => {
     });
 
     it('Admin can add tenant from the flat', () => {
-        cy.addTenant(2, 6);                              // Brisanje stanara sa id: 3 iz stana sa brojem: 1 preko cy.request
+        cy.addTenant(2, 6);                              
 
-        // Ovde možemo da ubacimo pretpostavku da obrisani stanar više nije u tabeli  
+         
     });
 
     it('Admin can delete tenant from the flat', () => {
         cy.deleteTenant(2, 6);                              // Brisanje stanara sa id: 3 iz stana sa brojem: 1 preko cy.request
 
-        // Ovde možemo da ubacimo pretpostavku da obrisani stanar više nije u tabeli  
+        
     });
 
     it('Admin can get all stanari', () => {
