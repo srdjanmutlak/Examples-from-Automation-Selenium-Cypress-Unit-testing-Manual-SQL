@@ -34,7 +34,7 @@ describe('Invalid login tests', () => {
 
     })
 
-    it('login Prazna Lozinka', () => {
+    it('login Prazno polje Lozinka', () => {
         
         cy.visit('/')
         
@@ -116,7 +116,7 @@ describe('Invalid login tests', () => {
 
     })
 
-    it('login Prazna Lozinka', () => {
+    it('login Prazno polje Email', () => {
         
         cy.visit('/')
         
