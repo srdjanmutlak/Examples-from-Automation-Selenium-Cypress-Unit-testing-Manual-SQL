@@ -1,5 +1,5 @@
-describe('Reset Password Page', () => {                             // Primer promene lozinke sa jednim pozitivnim i jednim negativnim testom
-    beforeEach(() => {                                              // Potrebno je dodati preostale negativne testove koje smo naveli na času 
+describe('Go to Zgrade', () => {                             
+    beforeEach(() => {                                             
         cy.login('admin@gmail.com', 'Bar5slova')   
         cy.get(".nav-link[href='/zgrade']").click()
         cy.url().should('be.equal', 'http://localhost:8080/zgrade')
