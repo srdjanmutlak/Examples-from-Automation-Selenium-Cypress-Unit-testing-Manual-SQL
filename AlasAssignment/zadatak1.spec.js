@@ -24,6 +24,14 @@ describe('Testing orangehrm', () => {
        expect($lis).to.have.length(44)
                   
         })
+        
+        cy.iframe().xpath("(//tbody)[4]")
+         .find("tr")
+        .then((row) => {
+                      //row.length will give you the row count
+         cy.log(row.length)
+            
+        })
 
        cy.iframe().find('#addItemBtn').should('be.visible').click()               //Print out the number of candidates; Click on the green Add button
 
