@@ -35,6 +35,7 @@ describe('Testing orangehrm', () => {
        cy.iframe().find('#addItemBtn').should('be.visible').click()               //Print out the number of candidates; Click on the green Add button
 
        cy.addNewCandidate('QA Automation', 'I got strange last name', 'QAauto@gmail.com')  //Fill the mandatory fields and vacancy (attach file must be in fixtures folder)
+        //Also check commands.js for attach file command solution
 
        cy.reload()              //reload so that Cypress would catch the next action
 
