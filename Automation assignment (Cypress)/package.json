@@ -1,0 +1,16 @@
+{
+  "name": "cypress2",
+  "version": "0.0.0",
+  "description": "Primeri za termin Cypress 2",
+  "private": true,
+  "devDependencies": {
+    "@4tw/cypress-drag-drop": "^2.1.0",
+    "cypress": "^9.1.0",
+    "cypress-file-upload": "^5.0.8",
+    "cypress-xpath": "^1.6.2"
+  },
+  "dependencies": {
+    "cypress-iframe": "^1.0.1",
+    "cypress-real-events": "^1.6.0"
+  }
+}
