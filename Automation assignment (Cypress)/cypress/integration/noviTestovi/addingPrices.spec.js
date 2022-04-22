@@ -26,6 +26,26 @@ describe('Testing saucedemo', () => {
 		expect($lis.eq(2)).to.have.text('Sauce Labs Bike Light')
 
         }) // Verify that the correct items are present (3 different items)
+	    
+	cy.get('.title')
+            .invoke('css', 'fontSize')
+            .then(cy.log)
+            .should('match', /^\d+px$/)
+            .invoke('replace', 'px', '')
+            .then(cy.log)
+            .then(Number)
+            .should('closeTo', 24, 1)
+
+        // Checking the pixels on the TITLE
+
+        cy.get('.title')
+            .invoke('height')
+            .should('be.greaterThan', 27.9999999999999).and('be.lessThan',28.0000000000001)
+        cy.get('.title')
+            .invoke('width')
+            .should('be.greaterThan', 140.90624).and('be.lessThan',140.90626)
+
+        // Checking the height and width of the title
     
         
         cy.get('#checkout').click()             //Continue to the Checkout page
