@@ -1,0 +1,21 @@
+{
+  "name": "ProjectTimeTracker",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cypress": "^6.8.0"
+  },
+  "devDependencies": {
+    "cypress-mochawesome-reporter": "^2.0.1",
+    "faker": "^5.5.2",
+    "mochawesome": "^6.2.2",
+    "mochawesome-merge": "^4.2.0"
+  }
+}

@@ -1,0 +1,13 @@
+{
+    "reporter": "cypress-mochawesome-reporter",
+    "reporterOptions": {
+        "reportDir": "cypress/report/mochawesome-report",
+        "reportFilename": "ClockifyReport",
+        "overwrite": true,
+        "html": true,
+        "json": true,
+        "timestamp": "mmddyyyy_HHMMss",
+        "charts": true
+     },
+     "video" : false
+}
