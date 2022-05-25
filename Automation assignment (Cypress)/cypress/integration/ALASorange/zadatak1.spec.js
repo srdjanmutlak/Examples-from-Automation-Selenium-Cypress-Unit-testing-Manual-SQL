@@ -41,11 +41,9 @@ describe('Testing orangehrm', () => {
         cy.get("#btnLogin")
             .click()                                 //Login
 
-        cy.wait("@getPermissioins")
+        cy.wait("@getPermissioins")           //Wait for the dashboard page to load
 
-        cy.xpath("//span[normalize-space()='Recruitment']").click()
-
-        cy.get("#menu_recruitment_viewCandidates").click()        //Wait for the dashboard page to load; Go to Recruitment; Click on Candidates on the left side panel
+        cy.get(".main-menu-item-1[data-automation-id='menu_recruitment_Recruitment(ATS)']").click()        //Go to Recruitment
 
        cy.frameLoaded('#noncoreIframe')                       //Entering Iframe
 
@@ -95,9 +93,7 @@ describe('Testing orangehrm', () => {
                     
           })               // number of candidates is decreased by 1.
         
-        cy.iframe().xpath("//a[@id='user-dropdown']").click({ force: true })
-        
-        cy.iframe().xpath("//a[@id='logoutLink']").click({ force: true })        // Open the side menu(already open); Click on the User icon and Logout
+        cy.iframe().xpath("//a[@href='/auth/logout/seamless']").click({ force: true })        // Logout
     })
 
 })
