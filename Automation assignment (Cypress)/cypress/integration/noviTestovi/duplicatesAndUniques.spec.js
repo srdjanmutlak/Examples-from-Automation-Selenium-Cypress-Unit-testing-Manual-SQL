@@ -1,7 +1,7 @@
 describe('Testing unique and duplicate items', () => {
     it('Find Duplicate Text Lightweight And Confirm The Rest Of Elements Are Unique', () => {
 		
-		cy.visit('https://cdpn.io/pen/debug/wvyXVRa?authentication_hash=bYMdyOpxVVQr')      
+	cy.visit('https://cdpn.io/pen/debug/wvyXVRa?authentication_hash=bYMdyOpxVVQr')      
 
         cy.get('li:contains(Lightweight)').should('have.length', 2)     
 
