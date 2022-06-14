@@ -51,43 +51,45 @@ describe('Testing google maps', () => {
        cy.get("label[for='pane.directions-options-avoid-highways']").click()
      //We chose to avoid highways
 	 
-		cy.xpath("//div[@id='section-directions-trip-0']//div[@jstcache = '200']").invoke('text').replace(' km', '').then(parseInt).as('longestRoute')
-		
-		cy.xpath("//div[@id='section-directions-trip-1']//div[@jstcache = '200']").invoke('text').replace(' km', '').then(parseInt).as('shortRoute1')
-		
-		cy.xpath("//div[@id='section-directions-trip-2']//div[@jstcache = '200']").invoke('text').replace(' km', '').then(parseInt).as('shortRoute2')
-		
-		cy.get('@longestRoute').should('be.gt', @shortRoute1)
-		cy.get('@longestRoute').should('be.gt', @shortRoute2)
-		
-		//
-		
-		cy.xpath("//div[@id='section-directions-trip-0']//div[@jstcache = '200']")
-		.invoke('text')
-		.then((s) => s.split(' '))
-		.invoke('find', (s) => s.startsWith(' km'))
-		.then((s) => s.replace(' km', ''))
-		.then(parseFloat)
-		.as('longestRoute')
-		
-		cy.xpath("//div[@id='section-directions-trip-1']//div[@jstcache = '200']")
-		.invoke('text')
-		.then((s) => s.split(' '))
-		.invoke('find', (s) => s.startsWith(' km'))
-		.then((s) => s.replace(' km', ''))
-		.then(parseFloat)
-		.as('shortRoute1')
-		
-		cy.xpath("//div[@id='section-directions-trip-2']//div[@jstcache = '200']")
-		.invoke('text')
-		.then((s) => s.split(' '))
-		.invoke('find', (s) => s.startsWith(' km'))
-		.then((s) => s.replace(' km', ''))
-		.then(parseFloat)
-		.as('shortRoute2')
-		
-		cy.get('@longestRoute').should('be.gt', @shortRoute1)
-		cy.get('@longestRoute').should('be.gt', @shortRoute2)
+	cy.get("div[id='section-directions-trip-2'] div[class='MespJc'] div div[class='ivN21e tUEI8e fontBodyMedium'] div")
+        .invoke('text')
+        .then((s) => {
+        const start = s.indexOf('')
+        const end = s.indexOf(' km', start)
+        return s.slice(start + 0, end)
+         })
+        .then(cy.log)
+        .then(parseInt)
+        .should('be.a', 'number')
+
+
+        cy.get("div[id='section-directions-trip-1'] div[class='MespJc'] div div[class='ivN21e tUEI8e fontBodyMedium'] div")
+        .invoke('text')
+        .then((s) => {
+        const start = s.indexOf('')
+        const end = s.indexOf(' km', start)
+        return s.slice(start + 0, end)
+         })
+        .then(cy.log)
+        .then(parseInt)
+        .should('be.a', 'number')
+
+
+        cy.get("div[id='section-directions-trip-0'] div[class='MespJc'] div div[class='ivN21e tUEI8e fontBodyMedium'] div")
+        .invoke('text')
+        .then((s) => {
+        const start = s.indexOf('')
+        const end = s.indexOf(' km', start)
+        return s.slice(start + 0, end)
+         })
+        .then(cy.log)
+        .then(parseInt)
+        .should('be.a', 'number')
+	    
+	    
+        .and('be.gt', shortRoute1)
+        .and('be.gt', shortRoute2)
+        .as('longestRoute')
 		
 
     //   cy.xpath("//div[@class='ivN21e tUEI8e fontBodyMedium']").should(($lis) => {
