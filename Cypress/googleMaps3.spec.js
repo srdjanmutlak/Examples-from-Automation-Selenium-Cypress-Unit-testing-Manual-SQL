@@ -51,89 +51,70 @@ describe('Testing google maps', () => {
        cy.get("label[for='pane.directions-options-avoid-highways']").click()
      //We chose to avoid highways
 	    
-	 cy.get('.score')
-  	.first()
- 	.invoke('text')
-  	.then(parseInt)
-  	// anything we extract from the page
-  	// should be used in cy.then(callback)
-  	.then((scoreA) => {
-    	cy.get('.score')
-      	.eq(1)
-      	.invoke('text')
-      	.then(parseInt)
-      	// the second score from the page
-      	// is passed to cy.then(callback)
-      	.then((scoreB) => {
-        // now both scoreA and scoreB are in scope
-        // and can be compared using an assertion
-        expect(scoreA, 'player B wins').to.be.lessThan(scoreB)
-      		})
-  	})
-	 
-	cy.get("div[id='section-directions-trip-2'] div[class='MespJc'] div div[class='ivN21e tUEI8e fontBodyMedium'] div")
-        .invoke('text')
-        .then((s) => {
-        const start = s.indexOf('')
-        const end = s.indexOf(' km', start)
-        return s.slice(start + 0, end)
-         })
-        .then(cy.log)
-        .then(parseInt)
-        .should('be.a', 'number')
+	 cy.get("div div[class='ivN21e tUEI8e fontBodyMedium'] div", { timeout: 100000 })
+  	    .first()
+ 	    .invoke('text')
+         .then((s) => {
+            const start = s.indexOf('')
+            const end = s.indexOf(' km', start)
+            return s.slice(start + 0, end)
+             })
+            .then(cy.log)
+            .then(parseInt)
+  	    // anything we extract from the page
+  	    // should be used in cy.then(callback)
+  	    .then((longestRoute) => {
+    	    cy.get("div div[class='ivN21e tUEI8e fontBodyMedium'] div")
+      	    .eq(1)
+      	    .invoke('text')
+      	    .then(parseInt)
+      	    // the second score from the page
+      	    // is passed to cy.then(callback)
+      	    .then((shortRoute1) => {
+            // now both scoreA and scoreB are in scope
+            // and can be compared using an assertion
+            expect(shortRoute1, 'Second route is shorter than the longest one').to.be.lessThan(longestRoute)
+      		    })
+          })
 
-
-        cy.get("div[id='section-directions-trip-1'] div[class='MespJc'] div div[class='ivN21e tUEI8e fontBodyMedium'] div")
-        .invoke('text')
-        .then((s) => {
-        const start = s.indexOf('')
-        const end = s.indexOf(' km', start)
-        return s.slice(start + 0, end)
-         })
-        .then(cy.log)
-        .then(parseInt)
-        .should('be.a', 'number')
-
-
-        cy.get("div[id='section-directions-trip-0'] div[class='MespJc'] div div[class='ivN21e tUEI8e fontBodyMedium'] div")
-        .invoke('text')
-        .then((s) => {
-        const start = s.indexOf('')
-        const end = s.indexOf(' km', start)
-        return s.slice(start + 0, end)
-         })
-        .then(cy.log)
-        .then(parseInt)
-        .should('be.a', 'number')
-	    
-	    
-        .and('be.gt', shortRoute1)
-        .and('be.gt', shortRoute2)
-        .as('longestRoute')
-		
-
-    //   cy.xpath("//div[@class='ivN21e tUEI8e fontBodyMedium']").should(($lis) => {
-     //   expect($lis).to.have.length(3)
-    //    expect($lis.eq(0)).to.contain('391 km')
-     //   expect($lis.eq(1)).to.contain('364 km')
-    //    expect($lis.eq(2)).to.contain('371 km')
-        
-     //   })
-
-	//We check which path is the longest one. These numbers didn't change in course of one hour.
-
-       // cy.xpath("(//div[@class='ivN21e tUEI8e fontBodyMedium'])[1]").click({ force: true })
-	//We choose the first and the longest one by index number 
-
+          cy.get("div div[class='ivN21e tUEI8e fontBodyMedium'] div")
+  	    .first()
+ 	    .invoke('text')
+         .then((s) => {
+            const start = s.indexOf('')
+            const end = s.indexOf(' km', start)
+            return s.slice(start + 0, end)
+             })
+            .then(cy.log)
+            .then(parseInt)
+  	    // anything we extract from the page
+  	    // should be used in cy.then(callback)
+  	    .then((longestRoute) => {
+    	    cy.get("div div[class='ivN21e tUEI8e fontBodyMedium'] div")
+      	    .eq(2)
+      	    .invoke('text')
+      	    .then(parseInt)
+      	    // the third score from the page
+      	    // is passed to cy.then(callback)
+      	    .then((shortRoute2) => {
+            // now both scoreA and scoreC are in scope
+            // and can be compared using an assertion
+            expect(shortRoute2, 'Third route is shorter than the longest one').to.be.lessThan(longestRoute)
+                  })
+                  
+            
+          })
+          
+        cy.get("#section-directions-trip-0")
+        .click({ force: true })
     
-       cy.xpath("//span[contains(text(),'391 km')]")
-       .should('have.text', '391 km')
+    
+       cy.get(".PNEhTd.Hk4XGb")
+       .should('contain', 'km')
        .should('be.visible')
-	//km is visible in details
 
        cy.contains('сати').should('be.visible')
        cy.contains('мин').should('be.visible')
-	//hours and minutes are visible in details
 
 })
 })
