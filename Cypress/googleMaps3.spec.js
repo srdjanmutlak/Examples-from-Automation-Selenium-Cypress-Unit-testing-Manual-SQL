@@ -105,7 +105,7 @@ describe('Testing google maps', () => {
             
           })
           
-        cy.get("#section-directions-trip-0")
+        cy.get(".TIQqpf.fontTitleSmall.XbJon.Hk4XGb")
         .click({ force: true })
     
     
