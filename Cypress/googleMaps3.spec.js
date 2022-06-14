@@ -50,6 +50,26 @@ describe('Testing google maps', () => {
 
        cy.get("label[for='pane.directions-options-avoid-highways']").click()
      //We chose to avoid highways
+	    
+	 cy.get('.score')
+  	.first()
+ 	.invoke('text')
+  	.then(parseInt)
+  	// anything we extract from the page
+  	// should be used in cy.then(callback)
+  	.then((scoreA) => {
+    	cy.get('.score')
+      	.eq(1)
+      	.invoke('text')
+      	.then(parseInt)
+      	// the second score from the page
+      	// is passed to cy.then(callback)
+      	.then((scoreB) => {
+        // now both scoreA and scoreB are in scope
+        // and can be compared using an assertion
+        expect(scoreA, 'player B wins').to.be.lessThan(scoreB)
+      		})
+  	})
 	 
 	cy.get("div[id='section-directions-trip-2'] div[class='MespJc'] div div[class='ivN21e tUEI8e fontBodyMedium'] div")
         .invoke('text')
