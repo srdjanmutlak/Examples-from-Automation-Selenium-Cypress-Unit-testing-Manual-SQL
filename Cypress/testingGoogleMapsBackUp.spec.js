@@ -1,4 +1,4 @@
-describe('Testing google maps: Since google maps are constantly updating there coud be a case of changing the position of the longest path. Therefore two of these tests will almost always fail, but one will pass. If one or more tests are passable whole test passes' , () => {
+describe('Testing google maps: Since google maps are constantly updating there coud be a case of changing the position of the longest path. Therefore two of these tests will fail, but one will pass. If one test is passable whole test passes' , () => {
 
     it('Testing if longest route is in the first place', () => {
 
