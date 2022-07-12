@@ -16,7 +16,7 @@ describe('Testing links', () => {
    // username and password can be imprinted into a address for quicker access
    
 
-   cy.xpath("//a[normalize-space()='Our Team']")
+   cy.xpath("//a[@href='javascript:;']")
         .then((links) => {
 
         cy.request(links.prop('href'))
