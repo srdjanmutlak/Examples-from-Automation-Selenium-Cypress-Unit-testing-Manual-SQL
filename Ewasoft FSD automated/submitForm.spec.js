@@ -35,7 +35,7 @@ describe('Testing submit form', () => {
    //we check if alert pops up for the first field 
  })
  
- it('Tests if we get the proper msg after leaving second input fields empty and if letters are properly typed', () => {
+ it('Tests if we get the proper msg after leaving second input field empty and if letters are properly typed', () => {
 
        Cypress.on('uncaught:exception', (err, runnable) => {
            // returning false here prevents Cypress from
