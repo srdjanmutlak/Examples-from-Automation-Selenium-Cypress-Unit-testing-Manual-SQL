@@ -72,7 +72,7 @@ describe('Testing submit form', () => {
 
 })
  
- it('Tests if we get the proper msg after leaving third input fields empty', () => {
+ it('Tests if we get the proper msg after leaving third input field empty', () => {
 
        Cypress.on('uncaught:exception', (err, runnable) => {
            // returning false here prevents Cypress from
