@@ -25,7 +25,7 @@ describe('Testing links', () => {
         //we check if all 9 links are up and running 
        })
 
-       // this test FAILS, links do not work
+       // this test FAILS, links do not work, plus they all look the same
  })
  
 })
